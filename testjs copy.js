@@ -5,46 +5,34 @@ var wins = 0;
 var losses = 0;
 var ties = 0;
 
-	//clear
-	function clear() {
-		alert("you suck");
-		wins = 0;
-		losses = 0;
-		ties = 0;
-		userGuess = "";
-		// document.getElementById("your-guess").innerHTML = ("Your Guess: " + userGuess);
-		// document.getElementById("computer-guess").innerHTML = ("Computer's Guess: " + computerGuess);
-		// document.getElementById("wins").innerHTML = wins;
-		// document.getElementById("losses").innerHTML = losses;
-		// document.getElementById("ties").innerHTML = ties;
-	}
+	
 
 	// create click events
+
 	document.onkeyup = function() {
 
 		//click event for userguess
 		var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
-			//debugging
-			console.log("u: " + userGuess);
+	//debugging
+	console.log("u: " + userGuess);
 
 		//click event for computerGuess taken from animals array
 		var computerGuess = numbers[Math.floor(Math.random()*numbers.length)];
-			
-			//debugging
-			console.log("comp: " + computerGuess);
+	//debugging
+	console.log("comp: " + computerGuess);
 
 
 		//if statements
+		// if userGuess is r,p, or s
 
-		// if userGuess is r, p, or s
 		if (userGuess == 'r' || userGuess == "p" || userGuess == 's') {
-
 
 			// compare results with computerGuess
 			if (userGuess=='r' && computerGuess=='s') {
 				wins++;
-				var str;
+				var letter;
+				userGuess = letter.replace("r", "rock");
 				console.log(wins);
 			}
 
@@ -96,19 +84,10 @@ var ties = 0;
 			alert("please choose r, p, or s");
 		}
 
-			if (losses === 3) {
-				clear();
-		
-
-			}
-
 		// adjust strings for html
 		// var str = "p";
 		// userGuess = str.replace("p", "paper");
 
-
-
-		
 
 
 
@@ -117,14 +96,11 @@ var ties = 0;
 
 	// display to HTML
 
-
-		document.getElementById("your-guess").innerHTML = ("Your Guess: " + userGuess);
-		document.getElementById("computer-guess").innerHTML = ("Computer's Guess: " + computerGuess);
-		document.getElementById("wins").innerHTML = wins;
-		document.getElementById("losses").innerHTML = losses;
-		document.getElementById("ties").innerHTML = ties;
-
-	// }
+	document.getElementById("your-guess").innerHTML = ("Your Guess: " + userGuess);
+	document.getElementById("computer-guess").innerHTML = ("Computer's Guess: " + computerGuess);
+	document.getElementById("wins").innerHTML = wins;
+	document.getElementById("losses").innerHTML = losses;
+	document.getElementById("ties").innerHTML = ties;
 
 	// document.getElementById("guessesLeft").innerHTML = guessesLeft;
 	// document.getElementById("wins").innerHTML = wins;

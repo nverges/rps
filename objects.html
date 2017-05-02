@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>objects tested</title>
+</head>
+<body>
+		
+	<script type="text/javascript">
+		
+	var object = {
+		property: "result",
+		name: "nick",
+		age: 28,
+		sex: "yes, please",
+		"My Height": "really light. I need to eat more.",
+		oneWord: "one word",
+
+		
+		// This is a METHOD because it is a function within an object
+		// methods need to be declared with "name: function() {}"
+		resetAll: function() {
+			console.log(object.age);
+		}
+
+	};
+
+
+	// outside an object, declare a function with "function name() {}"
+	function nameMe() {
+
+		console.log(object.property);
+		console.log("__________________");
+
+	}
+
+	// click event to activate functions
+	document.onkeyup = function() {
+
+        // Captures the key press, converts it to lowercase, and saves it to a variable.
+        var letter = String.fromCharCode(event.keyCode).toLowerCase();
+
+        if (letter === "m") {
+        	//declare the nameMe function, located within this same object
+        	nameMe();
+        }
+
+        if (letter === "r") {
+        	//use . synax to call resetAll() function because it is in the "object" object
+        	object.resetAll();
+
+        }
+
+	}
+
+	// // console.logging object
+	// console.log("__________________");
+	// console.log(object);
+
+	// //able to console.log multiple things in one line
+	// console.log(object.name, object.sex, object.age);
+
+	// // need to use object.property syntax
+	// console.log(object.property);
+	// console.log(object.oneWord);
+
+	// // need to use [] and "" to declare strings
+	// console.log(object["My Height"]);
+
+
+	</script>
+
+
+</body>
+</html>

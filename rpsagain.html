@@ -1,3 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LETS DO IT</title>
+</head>
+<body>
+
+<!-- user needs to make a choice
+computer needs to make a choice
+need to capture those choices
+compare choices
+display result to user
+ -->
+
+ <div id="results">
+ 	<p><h1>Guess what letter I am thinking of!</h1></p>
+ </div>
+
+<script type="text/javascript">
+	
 
 var userGuess;
 var numbers = ["r", "p", "s"];
@@ -5,19 +26,8 @@ var wins = 0;
 var losses = 0;
 var ties = 0;
 
-	//clear
-	function clear() {
-		alert("you suck");
-		wins = 0;
-		losses = 0;
-		ties = 0;
-		userGuess = "";
-		// document.getElementById("your-guess").innerHTML = ("Your Guess: " + userGuess);
-		// document.getElementById("computer-guess").innerHTML = ("Computer's Guess: " + computerGuess);
-		// document.getElementById("wins").innerHTML = wins;
-		// document.getElementById("losses").innerHTML = losses;
-		// document.getElementById("ties").innerHTML = ties;
-	}
+var guessesLeft = 5;
+	
 
 	// create click events
 	document.onkeyup = function() {
@@ -25,26 +35,28 @@ var ties = 0;
 		//click event for userguess
 		var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
-			//debugging
-			console.log("u: " + userGuess);
+	//debugging
+	console.log("u: " + userGuess);
 
 		//click event for computerGuess taken from animals array
 		var computerGuess = numbers[Math.floor(Math.random()*numbers.length)];
-			
-			//debugging
-			console.log("comp: " + computerGuess);
+	//debugging
+	console.log("comp: " + computerGuess);
 
 
 		//if statements
+		// if userGuess is r,p, or s
 
-		// if userGuess is r, p, or s
 		if (userGuess == 'r' || userGuess == "p" || userGuess == 's') {
 
+			// else (losses ++) {
+			// 	guessesLeft --;
+			// 	alert("You lose a guess. Guesses Remaining: " + guessesLeft);
+			// }
 
 			// compare results with computerGuess
 			if (userGuess=='r' && computerGuess=='s') {
 				wins++;
-				var str;
 				console.log(wins);
 			}
 
@@ -96,42 +108,22 @@ var ties = 0;
 			alert("please choose r, p, or s");
 		}
 
-			if (losses === 3) {
-				clear();
-		
+		var html = "<p><h1>Guess what letter I am thinking of!</p></h2>" +
+		"<p><h2>wins: </h2>" + wins + "</p>" +
+		"<p><h2>losses: </h2>" + losses + "</p>" +
+		"<p><h2>ties: </h2>" + ties + "</p>";
 
-			}
-
-		// adjust strings for html
-		// var str = "p";
-		// userGuess = str.replace("p", "paper");
-
-
-
-		
-
-
-
-
-
-
-	// display to HTML
-
-
-		document.getElementById("your-guess").innerHTML = ("Your Guess: " + userGuess);
-		document.getElementById("computer-guess").innerHTML = ("Computer's Guess: " + computerGuess);
-		document.getElementById("wins").innerHTML = wins;
-		document.getElementById("losses").innerHTML = losses;
-		document.getElementById("ties").innerHTML = ties;
-
-	// }
-
-	// document.getElementById("guessesLeft").innerHTML = guessesLeft;
-	// document.getElementById("wins").innerHTML = wins;
-	// document.getElementById("losses").innerHTML = losses;
+		document.querySelector('#results').innerHTML = html;
 
 
 
 	}
 
 	
+
+
+
+</script>
+	
+</body>
+</html>

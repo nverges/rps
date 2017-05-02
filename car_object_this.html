@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>calling method using properties in another object</title>
+  </head>
+  <body>
+
+    <script>
+
+    var honda = {
+        make: "Honda",
+        model: "Fit",
+        color: "Blue Raspberry",
+        mileage: 3000,
+        isWorking: true,
+    }
+
+    var anotherTest = {
+      mileage: 5000,
+    }
+
+      var car = {
+       
+        // need to pass an argument in to be able to call driveToWork method using an object outside the car object
+        // "this" won't work
+        // need to understand the purpose of arguments better
+        driveToWork: function(argument) {
+
+          alert("Old Mileage: " + argument.mileage);
+
+          argument.mileage = argument.mileage + 8;
+
+          alert("New mileage: " + argument.mileage);
+        },
+
+        driveAroundWorld: function(a) {
+
+          alert("Old Mileage: " + a.mileage);
+
+          a.mileage = a.mileage + 24000;
+
+          alert("New Mileage: " + a.mileage);
+          alert("Car needs a tuneup!");
+
+          a.isWorking = false;
+        },
+
+        getTuneUp: function(a) {
+          alert("Car is ready to go!");
+          a.isWorking = true;
+        },
+
+        honk: function() {
+          alert("Honk! Honk!");
+        }
+      };
+
+      // this will pass the properties from the "honda" object into the driveToWork method associated with the car object
+      car.driveToWork(honda);
+
+      // pulls the driveAroundWorld method within the car object and passes the properties in the honda object
+      car.driveAroundWorld(honda);
+
+      // passing in values from the anotherTest object into the driveToWork method nested within the car object
+      car.driveToWork(anotherTest);
+
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>objects tested</title>
+</head>
+<body>
+
+Press R or M
+		
+	<script type="text/javascript">
+		
+	var object = {
+		property: "result",
+		name: "nick",
+		age: 28,
+		sex: "yes, please",
+		"My Height": "really light. I need to eat more.",
+		oneWord: "one word",
+
+		// function within an object needs to be declared this way
+		resetAll: function() {
+			console.log(object.age);
+		}
+
+	};
+	
+
+	// outside 
+	function nameMe() {
+
+		console.log(object.property);
+		console.log("__________________");
+
+	}
+
+
+	document.onkeyup = function(event) {
+
+        // Captures the key press, converts it to lowercase, and saves it to a variable.
+        var letter = String.fromCharCode(event.keyCode).toLowerCase();
+
+        if (letter === "m") {
+        	nameMe();
+        }
+
+        if (letter === "r") {
+        	object.resetAll();
+
+        }
+
+	}
+
+	// // console.logging object
+	// console.log("__________________");
+	// console.log(object);
+
+	// //able to console.log multiple things in one line
+	// console.log(object.name, object.sex, object.age);
+
+	// // need to use object.property syntax
+	// console.log(object.property);
+	// console.log(object.oneWord);
+
+	// // need to use [] and "" to declare strings
+	// console.log(object["My Height"]);
+
+
+	</script>
+
+
+</body>
+</html>
