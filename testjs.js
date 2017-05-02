@@ -8,6 +8,7 @@ var ties = 0;
 	
 
 	// create click events
+
 	document.onkeyup = function() {
 
 		//click event for userguess
@@ -87,9 +88,6 @@ var ties = 0;
 		// var str = "p";
 		// userGuess = str.replace("p", "paper");
 
-
-
-		
 
 
 
